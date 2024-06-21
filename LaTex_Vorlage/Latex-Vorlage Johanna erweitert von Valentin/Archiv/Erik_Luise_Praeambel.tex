@@ -1,0 +1,280 @@
+\documentclass[
+12pt,						% Schriftgröße
+DIV=10,
+german,						% für Umlaute etc
+listof=totoc,				% Verzeichnisse im Inhaltsverzeichnis aufführen
+bibliography=totoc, 		% Literaturverzeichnis im Inhaltsverzeichnis aufführen
+index=totoc,				% Index im Inhaltsverzeichnis aufführen
+oneside,
+paper=a4,
+headings=normal,
+titlepage,					% es wird eine Titelseite verwendet
+parskip=half,				% Abstand zwischen Absätzen (halbe Zeile)	
+headsepline,        		% Linie unter Kopfzeile
+final
+]{scrbook} % alternativ: scrreprt, scrartcl
+
+
+% Packages
+% -----------------------------------
+%Einstellungen der Seitenränder
+\usepackage[inner=3.5cm,outer=2cm,top=2.5cm,bottom=2cm,includeheadfoot]{geometry}
+
+%% Zitate
+\usepackage{apacite} 					% Literatur-Referenzen: American Psycholog. Assoc.
+\usepackage{natbib}						% definiert den Zitierstil als Autor (Jahr)
+\usepackage{mdwlist}
+\setcitestyle{round,aysep={}} 			% Indizierg. in runden Klammern, zw. Autor u. Jahr
+
+
+%% Überschriften in Deutsch
+% \usepackage[latin1]{inputenc} 		% Umlaute im Text
+\usepackage[utf8]{inputenc}        	% Umlaute ermöglichen - einkommentieren, falls oben nicht 															funktioniert
+%\usepackage[ngerman]{babel}   	% englische und deutsche Sprache, die letzte Sprache gibt an, in 													welcher Sprache die Überschriften (Literaturverzeichnis vs. 													References etc) angegeben werden
+\usepackage[T1]{fontenc}
+\hyphenation{voll-st\"andigen}
+
+%%% Bilder
+\usepackage{graphicx} 					% Grafiken einfügen (pdf,png - aber jpg vermeiden)
+\graphicspath{{./Bilder/}}              % Pfad zu den Bildern
+%\usepackage{pdflscape}               	% Einzelne Seiten im Querformat möglich
+\usepackage[pdftex]{xcolor}             % Eigene Farbdefinition möglich
+%\usepackage{subfigure}               	% für mehrere Grafinken in einer Figure
+\usepackage{subcaption}                 % same as subfigure, aber aktueller?
+\usepackage{placeins}                	% Bessere Positionierung von Tabellen und Figures [\FloatBarrier]
+\usepackage{float}						% Stellt die Platzierungsoption[H] zur Verfügung, mit der man flaots 												an die Stelle zwingen kann, wo sie definiert wurden.
+
+%% für schöne Graphiken (können so direkt in Latex erstellt werden, sehr praktisch!)
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric}
+\usetikzlibrary{shapes.arrows}
+\usepackage{pgfplots}					% ermöglicht das Erstellen von Plots in der Tikzpicture-Umgebung
+\pgfplotsset{compat=1.15} %Kompatibilitätsangabe
+%\usepackage{pgf-pie}                   % muss heruntergeladen werden, kann dann einfache Kreisdiagramme ...
+\usepackage{filecontents}				% ermöglicht das Einlesen der zu plottenden Daten aus .csv oder .txt-											  Datein
+
+%%% Tabellen
+\usepackage{longtable}               	% größere Tabellen mit Umbrüchen möglich 
+\usepackage{ifthen} 					% ermöglicht if-Abfragen
+\usepackage{rotating}
+\usepackage{array} 						% Für schönere und vielfältigere Tabellen
+\usepackage{multirow} 					% Mehrere Spalten/Zeilen in einer Tabelle zusammenfassen 															(multicolumn, multirow}
+\usepackage{booktabs}
+\newcommand{\tabitem}{~~\llap{\textbullet}~~} % Das Paket stellt zwei Design-Paradigmen auf: 1. Vertikale Linien 													sind böse,  2. Doppelte Linien sind böse
+
+% Ein paar Neudefinitionen zum Anpassen des multirow-Befehls an die booktabs-Umgebung
+		\newcommand{\forloop}[5][1]{%
+		\setcounter{#2}{#3}%
+		\ifthenelse{#4}{#5\addtocounter{#2}{#1}%
+		\forloop[#1]{#2}{\value{#2}}{#4}{#5}}%
+		{}}
+		\newcounter{crcounter}
+		\newcommand{\compensaterule}[1]{%
+		\forloop{crcounter}{1}{\value{crcounter} < #1}%
+		{\vspace*{-\aboverulesep}\vspace*{-\belowrulesep}}}
+		\newcommand{\multirowbt}[3]{\multirow{#1}{#2}%
+		{\compensaterule{#1}#3}}
+		
+		\usepackage{epstopdf}
+\usepackage{url}					  
+\usepackage{tabularx} 				% bessere Gestaltung von Tabellen
+\usepackage[active]{srcltx}
+\usepackage{setspace} 				% Zeileneinstellung: 1,5-facher Zeilenabstand
+
+%% Formeln
+\usepackage{amsmath} 				% bessere Formelumgebung
+\usepackage{amsfonts}               % Mehr Schriftarten in Formeln
+\usepackage{amssymb}                % Sonderzeichen in Formeln
+\usepackage{siunitx}				% ermöglicht Darstellung der Einheiten in SI Einheiten
+\usepackage{siunitx}
+%\sisetup
+%\num{ scientific-notation =false,round-mode = places,    round-precision = 3,}
+\usepackage{numprint}
+%\nprounddigits{2}
+\usepackage{textcomp}				% ermöglicht °C und € im Fließtext (mit \textcelsius) 
+
+%% Verzeichnisse
+\usepackage{nomencl}                % fürs Symbolverzeichnis	
+\usepackage{booktabs}
+
+%TODO
+% Load the package
+\usepackage{glossaries}
+% Generate the glossary
+\makeglossaries
+%TODO end
+\usepackage[ruled,vlined]{algorithm2e}
+\newtheorem{mydef}{Merksatz}  		% Falls Beispiele, Merksätze m. fortl. Nr. gebr. werden
+\newtheorem{bsp}{Beispiel}
+\rmfamily 							% Serifenschrift
+% \usepackage[margin=0.5in]{geometry}
+\addtolength{\oddsidemargin}{.15in}
+\addtolength{\evensidemargin}{-.15in}
+
+\renewcommand{\familydefault}{\sfdefault}	
+%\renewcommand{\familydefault}{\rmdefault}	
+
+%% für Code im Anhang
+\usepackage{listings} \lstset{numbers=left, numberstyle=\tiny, numbersep=5pt}
+\lstset{language=Matlab,breaklines=true}
+\usepackage{color}
+
+\parindent0pt %Erstzeileneinzug abschalten
+
+
+\newcounter{mytemp}
+\newcounter{BlockCounter}
+ \renewcommand{\theBlockCounter}{\Alph{BlockCounter}} 		% nummeriert Blöcke in Flowcharts mit A,B,C statt 1,2,3
+ 
+ \addtocounter{secnumdepth}{1}
+\addtocounter{tocdepth}{1}
+
+% Alle Querverweise und URLs als Link darstellen
+% In der PDF-Ausgabe
+\usepackage[colorlinks=true, bookmarks, bookmarksnumbered, bookmarksopen, bookmarksopenlevel=1,
+linkcolor=black, citecolor=black, urlcolor=black, filecolor=black,
+pdfpagelayout=OneColumn, pdfnewwindow=true,
+pdfstartview=Fit, plainpages=false, pdfpagelabels, pdftex,
+pdfauthor={Vorname Nachname},
+pdftitle={Titel der Arbeit},
+pdfsubject={Masterarbeit},
+pdfkeywords={Keyword1, Keyword2, Keyword3, ...}]{hyperref}
+
+% Farben und Logos siehe: https://intranet.avt.rwth-aachen.de/Intranet/AVT/wiki/index.php/Logos#Farben  
+	% Farbennamen und -definitionen sind an die AVT-Powerpointpräsentation angelehnt. 
+%	\definecolor{avtcolor}{rgb}{0,0.537,0.820}	% Mit "rgb" muss man von den Angaben aus Word (= denen von der Webseite) immer Umrechnen
+%	\definecolor{avtcolor}{RGB}{14,133,196}			% mit "RGB" (großgeschrieben) muss man nicht Umrechen!
+%	\definecolor{rwthblue}{RGB}{0,83,159}
+%	\definecolor{186blau}{rgb}{0.729 ,0.859, 0.941} % ganz helles blau
+%	\definecolor{135blau}{rgb}{0.529,0.82,0.941} % auch ganu helles Blau
+%	\definecolor{64blau}{rgb}{0.25,0.741,0.827} % mittelblau (Logo 2. Klötzchen von links)
+%	\definecolor{79gruen}{rgb}{0.31,0.663,0.153} % dunkelgrün aus dem Logo
+%	\definecolor{194gruen}{rgb}{0.761,0.81,0} % hellgrün
+%	\definecolor{178grau}{rgb}{0.7,0.7, 0.7}
+%	\definecolor{0blau}{rgb}{0 ,0.506, 0.776} % farblich gleich mit AVTcolor, dunkelblau aus Logo
+%	%	
+	
+	%% LTT-Farben
+	% Hausfarbe RWTH blau
+	\definecolor{rwthblue100}{RGB}{0,84,159}
+	\definecolor{rwthblue75}{RGB}{64,127,183}
+	\definecolor{rwthblue50}{RGB}{142,186,229}
+	\definecolor{rwthblue25}{RGB}{199,221,242}
+	\definecolor{rwthblue10}{RGB}{232,241,250}
+	
+	% schwarz
+	\definecolor{black100}{RGB}{0,0,0}
+	\definecolor{black75}{RGB}{100,101,103}
+	\definecolor{black50}{RGB}{156,158,159}
+	\definecolor{black25}{RGB}{207,209,210}
+	\definecolor{black10}{RGB}{236,237,237}
+	
+	% magenta
+	\definecolor{magenta100}{RGB}{227,0,102}
+	\definecolor{magenta75}{RGB}{233,96,136}
+	\definecolor{magenta50}{RGB}{241,158,177}
+	\definecolor{magenta25}{RGB}{249,210,218}
+	\definecolor{magenta10}{RGB}{253,238,240}
+	
+	% gelb
+	\definecolor{yellow100}{RGB}{255,237,0}
+	\definecolor{yellow75}{RGB}{255,240,85}
+	\definecolor{yellow50}{RGB}{255,245,155}
+	\definecolor{yellow25}{RGB}{255,250,209}
+	\definecolor{yellow10}{RGB}{255,253,238}
+	
+	% petrol
+	\definecolor{petrol100}{RGB}{0,97,101}
+	\definecolor{petrol75}{RGB}{45,127,131}
+	\definecolor{petrol50}{RGB}{125,164,167}
+	\definecolor{petrol25}{RGB}{191,208,209}
+	\definecolor{petrol10}{RGB}{230,236,236}
+	
+	% türkis
+	\definecolor{cyan100}{RGB}{0,152,161}
+	\definecolor{cyan75}{RGB}{0,177,183}
+	\definecolor{cyan50}{RGB}{137,204,207}
+	\definecolor{cyan25}{RGB}{202,231,231}
+	\definecolor{cyan10}{RGB}{235,246,246}
+	
+	% grün
+	\definecolor{green100}{RGB}{87,171,39}
+	\definecolor{green75}{RGB}{141,192,96}
+	\definecolor{green50}{RGB}{184,214,152}
+	\definecolor{green25}{RGB}{221,235,206}
+	\definecolor{green10}{RGB}{242,247,236}
+	
+	% maigrün
+	\definecolor{maygreen100}{RGB}{189,205,0}
+	\definecolor{maygreen75}{RGB}{208,217,92}
+	\definecolor{maygreen50}{RGB}{224,230,154}
+	\definecolor{maygreen25}{RGB}{240,243,208}
+	\definecolor{maygreen10}{RGB}{249,250,237}
+	
+	% orange
+	\definecolor{orange100}{RGB}{246,168,0}
+	\definecolor{orange75}{RGB}{250,190,80}
+	\definecolor{orange50}{RGB}{253,212,143}
+	\definecolor{orange25}{RGB}{254,234,201}
+	\definecolor{orange10}{RGB}{255,247,234}
+	
+	% Rot
+	\definecolor{red100}{RGB}{204,7,30}
+	\definecolor{red75}{RGB}{216,92,65}
+	\definecolor{red50}{RGB}{230,150,121}
+	\definecolor{red25}{RGB}{243,205,187}
+	\definecolor{red10}{RGB}{250,235,227}
+	
+	% bordeaux
+	\definecolor{darkred100}{RGB}{161,16,53}
+	\definecolor{darkred75}{RGB}{182,82,86}
+	\definecolor{darkred50}{RGB}{205,139,135}
+	\definecolor{darkred25}{RGB}{229,197,192}
+	\definecolor{darkred10}{RGB}{245,232,229}
+	
+	% Violett
+	\definecolor{violet100}{RGB}{97,33,88}
+	\definecolor{violet75}{RGB}{131,78,117}
+	\definecolor{violet50}{RGB}{168,133,158}
+	\definecolor{violet25}{RGB}{210,192,205}
+	\definecolor{violet10}{RGB}{237,229,234}
+	
+	% Lila
+	\definecolor{purple100}{RGB}{122,111,172}
+	\definecolor{purple75}{RGB}{155,145,193}
+	\definecolor{purple50}{RGB}{188,181,215}
+	\definecolor{purple25}{RGB}{222,218,235}
+	\definecolor{purple10}{RGB}{242,240,247}
+	
+	% durch Definitionen in Tikz-Option kann der Plot in RWTH-Farben dargestellt werden.
+	% zB \draw[color=rwthblue100] (0,0)-- (2,2) macht eine diagonale Linie in dunkelblau
+
+% Chemische Formeln
+\usepackage[version=4]{mhchem}	% Für die Darstellung chemischer Formeln (muss leider entweder von Hand eingebunden werden (Adminrechte nötig)  oder das mhchem.sty-file muss in dem selben Ordner wie das LaTeX-file liegen, damit LaTeX es finden kann.
+\usepackage{chemfig} % Für Strukturformeln und ähnliches
+\makeatletter
+\newcounter{reaction}
+\renewcommand\thereaction{C\,\thechapter.\arabic{reaction}}
+\@addtoreset{reaction}{chapter}
+\newcommand\reactiontag%
+{\refstepcounter{reaction}\tag{\thereaction}}
+\newcommand\reaction@[2][]%
+{\begin{equation}\ce{#2}%
+\ifx\@empty#1\@empty\else\label{#1}\fi%
+\reactiontag\end{equation}}
+\newcommand\reaction@nonumber[1]%
+{\begin{equation*}\ce{#1}\end{equation*}}
+\newcommand\reaction%
+{\@ifstar{\reaction@nonumber}{\reaction@}}
+\makeatother
+
+%Zusätzliche Packages tima01
+\usepackage{todonotes} %hiermit kann man todos einfügen ist ganz nett z.B. an Stellen wo später Bilder hin sollen
+%\usepackage[decimalsymbol=comma,digitsep=period]{siunitx}   % Nutzen von Einheiten!
+%\usepackage{eurosym}
+\usepackage{comment} %um ganze Abschnitte auszukommentieren
+
+
+
+
+%%%%%%%Ende  von Erik un Luise eingebaut%%%%

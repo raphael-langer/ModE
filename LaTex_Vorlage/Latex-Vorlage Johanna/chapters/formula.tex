@@ -1,0 +1,42 @@
+\makenomenclature %Nomenklatur wird erstellt, aber noch nicht ausgegeben
+
+
+\renewcommand{\nomname}{List of Abbreviations and Symbols Used} % Deutsche Überschrift evt einfügen
+\newcommand{\einheit}[1]{\renewcommand{\nomentryend}{\hfill $\left[ #1 \right]$} } % Einheiten können angegeben werden 
+
+% ++++ Damit Nomenklatur im Anhang als eigenes Chapter aufgeführt wird 
+\setlength{\nomlabelwidth}{20mm}  % LabelBreite
+\makeatletter   
+\renewcommand{\thenomenclature}{%
+\chapter{\nomname}
+\list{}{
+\labelwidth\nom@tempdim
+\leftmargin\labelwidth
+\advance\leftmargin\labelsep
+\let\makelabel\nomlabel
+}
+}
+\makeatother
+% ++++ Ende eigenes Chapter
+
+% ++++ Die einzelnen Teile der Nomenklatur werden definiert ++++
+\renewcommand{\nomgroup}[1]{%
+	\ifthenelse{\equal{#1}{S}}{\item[\textbf{List of Symbols}]}{%
+		\ifthenelse{\equal{#1}{A}}{\item[\textbf{List of Abbreviations}]} {
+		  \ifthenelse{\equal{#1}{I}}{\item[\textbf{List of indices}]} {} } }	
+		 }
+
+% +++++++  Ab hier die Nomenklatureinträge bearbeiten ++++++++++++
+
+% VERZEICHNIS DER FORMELZEICHEN
+\nomenclature[S]{$\varphi$}{smoothed switching function between 0 and $\Delta h_i$ \einheit{-}}
+
+
+% VERZEICHNIS DER ABKüRZUNGEN
+ \nomenclature[A]{$DAE$}{Differential-algebraische Gleichung}%
+
+
+% VERZEICHNIS DER INDIZES
+\nomenclature[I]{$UBD$}{upper bounding}%
+
+
