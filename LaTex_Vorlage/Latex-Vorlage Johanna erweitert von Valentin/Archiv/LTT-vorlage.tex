@@ -1,0 +1,137 @@
+\documentclass[pdftex,
+a4paper,
+12pt,
+twoside,
+%DIV=11,
+titlepage,
+%doubleside,
+openright,
+parskip=half-,
+bibliography=totoc,	%Bib in Inhaltsverzeichnis erwähnt
+listof=totoc,%numbered,
+%listof=nochaptergap,
+numbers=noenddot,
+fleqn,
+%captions=nooneline,
+%headinclude=true,
+%headings=small,
+%chapterprefix,% Kapitel anschreiben als Kapitel
+BCOR12mm, %Einstellung fuer den zusaetzlichen inneren Rand zur Bindekorrektur
+]{scrreprt}
+
+
+
+%\usepackage{endfloat}
+\usepackage{flafter}
+\usepackage{placeins}		%\FloatBarrier
+
+\usepackage{titletoc}
+\usepackage{geometry}
+\usepackage{parcolumns}
+\usepackage{multicol}
+\usepackage[utf8]{inputenc}
+\usepackage{ngerman}
+\usepackage[ngerman]{babel}
+\usepackage{color} 
+\usepackage[T1]{fontenc}
+%\usepackage[latin1]{inputenc}
+
+%\usepackage[section]{placeins}
+
+\usepackage[babel,german=quotes]{csquotes}
+
+\usepackage{microtype}
+\usepackage{lmodern}
+
+
+\usepackage[small%,bf
+]{caption}
+\captionsetup[figure]{skip=-5pt}
+
+%\usepackage[Sonny]{fncychap}
+
+\usepackage{commath}
+\usepackage{amsmath}
+%\usepackage{graphics}
+\usepackage{graphicx}
+
+\usepackage{siunitx}
+
+\usepackage{cite}
+%\usepackage[numbers,square]{natbib}
+%\usepackage[numbers]{natbib}
+%\usepackage[sort&compress,numbers]{natbib}
+%\usepackage[numbers,round]{natbib}
+
+\usepackage{url}
+\urlstyle{same}
+
+\usepackage{bibgerm}
+
+\usepackage{textcomp}
+
+\usepackage{longtable}
+%\usepackage{multirow}
+
+\usepackage{subfigure}
+
+\hyphenation{Ge-setz-mä-ßig-keit-en Um-ge-bungs-tem-pe-ra-tur RWTH Be-zugs-tem-pe-ra-tu-ren wo-rauf-hin Di-plom-ar-beit Ei-gen-schaf-ten Zeo-lith-Wasser Stoff-ei-gen-schaf-ten Dif-fu-sions-ko-ef-fi-zient ein-heit-licher Gleich-ge-wichts-be-la-dun-gen Wär-me-ü-ber-tra-gungs-ko-ef-fi-zien-ten Kon-vek-tion Dif-fe-renz-Ther-mo-ana-ly-se Ad-sorp-ti-ons-stoff-paa-rung zwisch-en-mo-le-ku-la-ren Kom-pres-sions Pro-zes-ses Kon-den-sations-tem-pe-ra-tur Ab-gas-strom Kon-den-sa-tor  Ver-damp-fer Kon-den-sations-tem-pe-ra-tur Ver-damp-fungs-tem-pe-ra-tur Ver-damp-fung }
+\usepackage{hyphenat}
+
+
+\DeclareMathOperator{\arsinh}{arsinh} %Areasinushyperbolicus
+
+%\usepackage[style=super, header=none, border=none, number=none, cols=2, toc=true]{glossary}
+
+%\makeglossary
+
+\usepackage[pdfborder={0 0 0}]{hyperref}
+%\usepackage[]{hyperref}
+%\hypersetup{bookmarksnumbered, colorlinks=false, linkcolor=blue, plainpages=false, pdfpagelabels}
+%\newcommand*\boldsigma{\mbox{\boldmath$\upsigma$}} %Beispiel für Makro!
+
+\usepackage[ngerman]{babel}
+\usepackage{german}
+\usepackage{ngerman}
+%\bibliographystyle{bibliographie/springer2}
+
+
+\usepackage[printonlyused]{acronym}
+
+\usepackage[plainfootsepline]{scrpage2}
+%\usepackage{scrpage2}
+\clearscrheadfoot 
+\clearscrheadings 
+\clearscrplain 
+\ohead{\headmark}
+%\ohead{\pagemark} 
+\chead{}
+\pagestyle{scrheadings}
+\automark[section]{chapter}
+\setheadsepline{0.4pt}
+\setfootsepline{0.4pt}
+\ofoot[\setfootsepline{0.4pt}\pagemark]{\pagemark}
+
+\recalctypearea 
+
+\usepackage{booktabs} % erzeugt besser aussehende Tabellen, horizontale Linien mit \toprule, \midrule, \bottomrule
+\newcommand{\forloop}[5][1]{%
+\setcounter{#2}{#3}%
+\ifthenelse{#4}{#5\addtocounter{#2}{#1}%
+\forloop[#1]{#2}{\value{#2}}{#4}{#5}}%
+{}}
+
+
+\newcounter{crcounter}
+
+\newcommand{\compensaterule}[1]{%
+\forloop{crcounter}{1}{\value{crcounter} < #1}%
+{\vspace*{-\aboverulesep}\vspace*{-\belowrulesep}}}
+
+\usepackage{multirow} 
+\usepackage{rotating}
+\newcommand{\multirowbt}[3]{\multirow{#1}{#2}%
+{\compensaterule{#1}#3}}
+
+
+\renewcommand{\baselinestretch}{1.0}

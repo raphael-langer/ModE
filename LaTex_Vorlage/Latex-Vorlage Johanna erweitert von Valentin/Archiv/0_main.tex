@@ -1,0 +1,60 @@
+\input{LTT-vorlage-bearbeitet.tex}
+%\input{praeambel.tex}
+ 
+
+\title{Application and Assessment of Simplified Process Design Methods for Generating Life Cycle Assessment Databases for Chemicals}
+\author{Valentin Dinges \and Matthias Ellinger}
+\date{March 2020}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+% Einrücken von Absätzen verhindern und 1.5 Zeilen Absatzabstand
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{1.5ex plus0.5ex minus0.5ex}
+
+\maketitle
+\input{abbreviations.tex}
+
+\tableofcontents
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter*{Abstract}
+\input{abstract.tex}
+
+\chapter{Introduction}
+\input{introduction.tex}
+
+\chapter{\acl{LCA} Databases}
+\input{LCA.tex}
+
+\chapter{Simplified Process Design Methods}
+\input{SPDM.tex}
+
+\chapter{Application of Inventory Generation Methods to Existing Life Cycle Assessment Database}
+\input{case_study.tex}
+
+\chapter{Results and Discussion}
+\input{results.tex}
+
+\chapter{Conclusions and Outlook}
+\input{outlook.tex}
+% Literaturverzeichnis -----------------------------------------------------
+%		Das Literaturverzeichnis wird aus der Datenbank Bibliographie.bib 
+% 	erstellt. Die genaue Verwendung von bibtex wird hier jedoch nicht erklärt.
+%		Link: http://de.wikipedia.org/wiki/BibTeX
+% --------------------------------------------------------------------------
+%\nocite{*}											% Einbinden aller Quellen (auch der nciht zitierten) aus dem nachfolgenden Dokument
+%\renewcommand*{\bibname}{References}
+\addcontentsline{toc}{chapter}{Bibliography}
+\bibliographystyle{unsrt} 
+\bibliography{literature}		    % Einbinden der Datei literatur.bib
+	% DIN-Stil des Literaturverzeichnisses
+
+%\DefineBibliographyStrings{german}{%
+%phdthesis ={Dissertation}
+%}
+%\bibliographystyle{gerunsrt}
+
+\end{document}

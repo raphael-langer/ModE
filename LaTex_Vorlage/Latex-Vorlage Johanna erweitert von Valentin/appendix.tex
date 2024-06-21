@@ -1,0 +1,43 @@
+\section{Comparison of the Fugitive Emission Methods by Smith et al. \cite{Smith.2017}, Jiménez-González et al. \cite{JimenezGonzalez.2000} and Ecoinvent \cite{Hischier.2005}}
+
+Assuming the method of Smith et al. to be afflicted with small error (see Chapter \ref{chap:Smith}), the methods by Jiménez-González et al. and Ecoinvent can be evaluated by a  comparison to the method by Smith et al.
+
+Table \ref{tab:comp-fugi} and \ref{tab:comp-fugi-Eco} document the calculations to make the three approaches comparable. Based on the generic flow sheet (Figure \ref{fig:flow sheet}), a number of three compressors or pumps is assumed. As the emission factors by Smith et al. are time dependent, a substance flow of 1000 $\frac{\mathrm{kg}}{\mathrm{h}}$ is assumed, based on the assumption of 1000 $\frac{\mathrm{kg}}{\mathrm{h}}$ product flow in the case study in \cite{JimenezGonzalez.2000}. To make the emission factors comparable, the emission factors by Smith et al. need to be multiplied by the number of pumps or compressors and divided by the substance mass flow. This results in comparable emission factors.
+
+The result of the first comparison (Table \ref{tab:comp-fugi}) is that the emission factors by Jiménez-González at al. for light liquids, heavy liquids and gases are two magnitudes, three magnitudes and one magnitude higher than the factors in the method by Smith et al.
+
+The result of the second comparison (Table \ref{tab:comp-fugi-Eco}) is that the emission factor by Ecoinvent  is two magnitudes, three magnitudes and one magnitude higher than the factors in the method by Smith et al. for light liquids, heavy liquids and gases.
+
+\begin{table}[]
+    \caption[Comparison of the fugitive emission factors 1]{Comparison of the fugitive emission methods by Smith et al. \cite{Smith.2017} and Jiménez-González et al. \cite{JimenezGonzalez.2000}. Jiménez-González et al. distinguish fluids according to the boiling point at 1013 hPa: light liquids: $20...60$ °C; heavy liquids $60...120$ °C. Smith et al. distinguish fluids according to the vapor pressure at 20 °C: light liquids $>0.3$ kPa; heavy liquids $<0.3$ kPa.}
+    \label{tab:comp-fugi}
+    \centering
+    \resizebox{\textwidth}{!}{
+    \begin{tabular}{cccc}\toprule
+\textbf{fluid}   &\multicolumn{2}{c}{\textbf{emission factors by}}            &\textbf{difference} \\
+ {}     &\textbf{Smith et al.}           & \textbf{Jiménez-González et al.}   & {}        \\\midrule
+light liquid    &   $3\cdot 0.0199 \frac{\mathrm{kg}}{\mathrm{h}\cdot \mathrm{source}}=0.0597 \frac{\mathrm{kg}}{\mathrm{h}}$ &               &  \\
+                &   $\frac{0.0597 \ \mathrm{kg/h}}{1000 \ \mathrm{kg/h}}=0.00597 \%$                   &   $2 \ \%$       &3 magnitudes\\\midrule
+heavy liquid    &   $3\cdot 0.00862 \  \frac{\mathrm{kg}}{\mathrm{h}\cdot \mathrm{source}}=0.02586 \frac{\mathrm{kg}}{\mathrm{h}}$&               & \\
+                &   $\frac{0.02586 \ \mathrm{kg/h}}{1000 \ \mathrm{kg/h}}=0.002586 \%$                &   $1 \ \%$ & 3 magnitudes\\\midrule
+gases           &  $3\cdot 0.288 \  \frac{\mathrm{kg}}{\mathrm{h}\cdot \mathrm{source}}=0.864  \frac{\mathrm{kg}}{\mathrm{h}}$ & & \\
+           & $\frac{0.864 \ \mathrm{kg/h}}{1000 \ \mathrm{{kg/h}}}=0.0864 \%$ & $0.5 \ \%$ & 1 magnitude\\\bottomrule
+\end{tabular}}
+\end{table}
+
+\begin{table}[]
+    \caption[Comparison of the fugitive emission factors 2]{Comparison of the fugitive emission methods by Smith et al. \cite{Smith.2017} and Ecoinvent \cite{Hischier.2005}. Smith et al. distinguish fluids according to the vapor pressure at 20 °C: light liquids $>0.3$ kPa; heavy liquids $<0.3$ kPa.}
+    \label{tab:comp-fugi-Eco}
+    \centering
+    \resizebox{\textwidth}{!}{
+    \begin{tabular}{cccc}\toprule
+\textbf{fluid} &\multicolumn{2}{c}{\textbf{emission factors by}} & \textbf{}\\
+   &    \textbf{Smith et al.}    & \textbf{Ecoinvent emission } & \textbf{difference}\\\midrule
+light liquid    &   $3\cdot 0.0199 \frac{\mathrm{kg}}{\mathrm{h}\cdot \mathrm{source}}=0.0597 \frac{\mathrm{kg}}{\mathrm{h}}$ &               &  \\
+                &   $\frac{0.0597 \ \mathrm{kg/h}}{1000 \ \mathrm{kg/h}}=0.00597 \%$                 &   $0.2 \ \%$       &2 magnitudes\\\midrule
+heavy liquid    &   $3\cdot 0.00862 \  \frac{\mathrm{kg}}{\mathrm{h}\cdot \mathrm{source}}=0.02586 \frac{\mathrm{kg}}{\mathrm{h}}$&               & \\
+                &   $\frac{0.02586 \ \mathrm{kg/h}}{1000 \ \mathrm{kg/h}}=0.002586 \%$                 &   $0.2 \ \%$ & 2 magnitudes\\\midrule
+gases           &  $3\cdot 0.288 \  \frac{\mathrm{kg}}{\mathrm{h}\cdot \mathrm{source}}=0.864  \frac{\mathrm{kg}}{\mathrm{h}}$ & & \\
+           & $\frac{0.864 \ \mathrm{kg/h}}{1000 \ \mathrm{{kg/h}}}=0.0864 \%$ & $0.2 \ \%$ & 1 magnitude\\\bottomrule
+\end{tabular}}
+\end{table}

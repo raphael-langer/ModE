@@ -1,0 +1,94 @@
+\input{LTT-vorlage-bearbeitet}
+\begin{document}
+
+% Einrücken von Absätzen = 0 und 1 Zeile Absatzabstand
+\setlength{\parindent}{0em}
+\setlength{\parskip}{0.5em}
+
+
+\input{titlepage}   %titlepage
+
+\restoregeometry
+
+
+%% Abstract
+\setcounter{page}{1}
+\pagenumbering{roman}
+\begin{titlepage}
+\chapter*{Abstract}
+\addcontentsline{toc}{chapter}{Abstract} 
+\input{abstract.tex}
+\end{titlepage}
+\cleardoublepage
+
+
+
+\thispagestyle{plain}
+
+
+\tableofcontents
+
+\cleardoublepage
+
+
+\cleardoublepage
+ \thispagestyle{plain}
+\listoffigures
+ \thispagestyle{plain}
+\listoftables
+%\include{chapters/Abkuerzungen}
+\cleardoublepage
+
+
+\chapter*{Abbreviations}
+\addcontentsline{toc}{chapter}{Abbreviations} 
+%\thispagestyle{plain}
+\input{abb_manual.tex}   %Abbreviations
+
+
+
+\cleardoublepage
+
+% Ab erstem Kapitel Seiten arabisch zählen
+\setcounter{page}{1}
+\pagenumbering{arabic}
+%
+
+\input{abbreviations.tex}
+
+\chapter{Introduction}
+\input{introduction.tex}
+
+\chapter{\acl{LCA} Databases}
+\input{LCA.tex}
+
+\chapter{Simplified Process Design Methods}
+\input{SPDM.tex}
+
+\chapter{Application of Simplified Process Design Methods to Existing Life Cycle Assessment Database}
+\input{case_study.tex}
+
+\chapter{Results and Discussion}
+\input{results.tex}
+
+\chapter{Conclusions and Outlook}
+\input{outlook.tex}
+
+
+\appendix
+
+\chapter{Appendix: Fugitive Emission Methods}
+\input{appendix}
+
+\chapter{Appendix: Details on the cm.chemicals Database}
+\label{appA}
+\input{appendix_A}
+
+
+
+% bibliography
+\setlength{\emergencystretch}{3em}
+\printbibliography
+
+
+\end{document}

@@ -1,0 +1,80 @@
+\include{preamble} % hiedrin stehen alle Voreinstellungen
+
+\DeclareSIUnit{\EUR}{\text{\euro}}
+\newcommand{\abs}[1]{\ensuremath{\left\vert#1\right\vert}} %Betragsfunktion
+
+\makenomenclature
+
+\begin{document}
+
+% Einrücken von Absätzen verhindern und 1.5 Zeilen Absatzabstand
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{1.5ex plus0.5ex minus0.5ex}
+
+\pagenumbering{roman} % Die ersten Seiten werden römisch nummeriert
+  
+  \numberwithin{equation}{chapter} %Gleichungen sollen mit Kapitelnummer nummeriert werden (z.Bsp. 4.1)
+  \numberwithin{table}{chapter} %Tabellen sollen mit Kapitelnummer nummeriert werden (z.Bsp. 4.1)
+  \numberwithin{figure}{chapter} %Abb. sollen mit Kapitelnummer nummeriert werden (z.Bsp. 4.1)
+
+  \onehalfspacing		% 1,5facher Zeilenabstand
+  \pagestyle{headings}	
+
+  \include{chapters/Titelseite} % ensprechende Einträge überarbeiten
+  \include{chapters/abstract} % ensprechende Einträge überarbeiten
+  
+% nachfolgend auskommentiertes ist kein schöner Stil, lieber bei \usepackage{babel} Englisch auswählen  
+% \renewcommand*\contentsname{Table of contents}
+  \tableofcontents					% Inhaltsverzeichnis einfügen
+  \setlength{\nomlabelwidth}{3cm}
+%\renewcommand*\listfigurename{List of figures}
+  \listoffigures				  % Abbildungsverzeichnis einfügen
+% \renewcommand*\listtablename{List of tables}
+  \listoftables						% Tabellenverzeichnis einfügen
+
+  \thispagestyle{empty}   % Erzwungener Seitenumbruch
+  \cleardoublepage        %  
+
+  \pagenumbering{arabic}  % Ab hier Seitennummern mit arabischen Zahlen
+  \setcounter{page}{1}    % Nummerierung beginnt bei 1
+
+
+% +++++++++ ab hier jetzt die eigentlichen Dokumente einzufügen. Jeweils mit \include{...}.  ++++++++++++%
+  \include{chapters/einleitung}
+%  \include{chapters/kapitel1}
+%  \include{chapters/kapitel2} etc
+
+
+% Literaturverzeichnis -----------------------------------------------------
+%		Das Literaturverzeichnis wird aus der Datenbank Bibliographie.bib 
+% 	erstellt. Die genaue Verwendung von bibtex wird hier jedoch nicht erklärt.
+%		Link: http://de.wikipedia.org/wiki/BibTeX
+% --------------------------------------------------------------------------
+%\nocite{*}											% Einbinden aller Quellen (auch der nciht zitierten) aus dem nachfolgenden Dokument
+%\renewcommand*{\bibname}{References}
+\bibliography{literature/thesis_lit}		    % Einbinden der Datei literatur.bib
+\bibliographystyle{apacite} 	% DIN-Stil des Literaturverzeichnisses
+
+%\DefineBibliographyStrings{german}{%
+%phdthesis ={Dissertation}
+%}
+%\bibliographystyle{gerunsrt}
+
+
+% ++++++++++++++++++++ ANHANG +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+\appendix %hier beginnt der Anhang
+  
+    \include{chapters/formula}    % genauso wie im Hauptteil  
+    \printnomenclature % Ausgabe der Nomenklatur
+    
+    % falls das Formelverzeichnis nicht kompiliert, müssen evt. die Editoreinstellungen geändert werden. Dazu unter Optionen - Texmaker konfigurieren - MakeIndex den Text makeindex %.idx durch makeindex.exe %.nlo -s nomencl.ist -o %.nl ersetzen
+    
+% +++++++ hier können noch weitere Datein als Anhang eingebunden werden ++++++++
+%\include{AppA}
+%\include{AppB}
+% auch hier können wieder Chapter z.Bsp. mit Modellgleichungen eingebunden werden
+%
+%tima01 hier wird jetzt Liste eingeblendet mit Todo´s die abgearbeitet werden müssen
+%\listoftodos %TODOs
+
+\end{document}
